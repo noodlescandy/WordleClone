@@ -33,6 +33,7 @@ public class WordleController {
     private final Color gray = Color.rgb(120, 124, 126);
     private final Color green = Color.rgb(106, 170, 100);
     private final Color yellow = Color.rgb(201, 180, 88);
+    private boolean gameOver = false;
 
 
     @FXML
@@ -65,7 +66,7 @@ public class WordleController {
     }
 
     private void letterInput(String letter) {
-        if(currentBox != 5){ // all five letters not entered
+        if(currentBox != 5 && !gameOver){ // all five letters not entered
             Group box = getBox(currentBox);
             ((Rectangle)box.getChildren().get(0)).setStroke(ldGray); // set stroke of Rectangle to darker
             ((Text) box.getChildren().get(1)).setText(letter);
@@ -75,7 +76,7 @@ public class WordleController {
     }
 
     private void backspace(){
-        if(currentBox != 0){ // at least one letter has been entered
+        if(currentBox != 0 && !gameOver){ // at least one letter has been entered
             Group box = getBox(currentBox - 1);
             ((Text) box.getChildren().get(1)).setText("");
             ((Rectangle) box.getChildren().get(0)).setStroke(llGray); // revert color of stroke
@@ -102,6 +103,7 @@ public class WordleController {
                     currentWord = "";
                 } else { // last row, you lost
                     displayNotification(correctWord, true);
+                    gameOver = true;
                 }
             }
             else{
@@ -186,6 +188,7 @@ public class WordleController {
                 case 5 -> winMessage = "Phew";
             }
             displayNotification(winMessage, true);
+            gameOver = true;
         }
     }
 
