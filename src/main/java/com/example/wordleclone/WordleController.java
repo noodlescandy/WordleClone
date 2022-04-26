@@ -1,5 +1,6 @@
 package com.example.wordleclone;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Group;
@@ -89,7 +90,6 @@ public class WordleController {
     private Group getBox(int boxIndex){
         HBox row = (HBox) rows.getChildren().get(currentRow);
         return (Group) row.getChildren().get(boxIndex);
-        //return (Text) box.getChildren().get(1);
     }
 
     private void nextRow(){
@@ -101,13 +101,11 @@ public class WordleController {
                     currentBox = 0;
                     currentWord = "";
                 } else { // last row, you lost
-                    // you lose
-                    System.out.println("You lose");
+                    displayNotification(correctWord, true);
                 }
             }
             else{
-                // display notification
-                System.out.println("Invalid Word");
+                displayNotification("Invalid Word", false);
             }
         }
     }
@@ -122,7 +120,6 @@ public class WordleController {
         // check currentWord vs correctWord
         int[] values = new int[5];
         StringBuilder checkedLetters = new StringBuilder(); // letters that have been used already
-        //String actionLetters = "";
         ArrayList<ArrayList<Integer>> actionIndexes = new ArrayList<>();
         ArrayList<Integer> differences = new ArrayList<>();
 
@@ -178,7 +175,17 @@ public class WordleController {
         setBoxColors(values);
         setButtonColors(values);
         if(greenCount == 5){
-            System.out.println("You win!");
+            String winMessage = "";
+            System.out.println(currentRow);
+            switch (currentRow){
+                case 0 -> winMessage = "Genius";
+                case 1 -> winMessage = "Magnificent";
+                case 2 -> winMessage = "Impressive";
+                case 3 -> winMessage = "Splendid";
+                case 4 -> winMessage = "Great";
+                case 5 -> winMessage = "Phew";
+            }
+            displayNotification(winMessage, true);
         }
     }
 
@@ -214,12 +221,6 @@ public class WordleController {
                 case 1 -> rect.setFill(yellow);
                 case 2 -> rect.setFill(green);
             }
-            // wait between coloring each box (doesn't work)
-            /*try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }*/
         }
     }
 
@@ -232,9 +233,38 @@ public class WordleController {
         this.acceptedWords = acceptedWords;
     }
 
-    /*
+
     private void displayNotification(String text, boolean isPersistent){
-        Text textBox = (Text) notificationBox.getChildren().get(1);
-        textBox.setText(text);
-    }*/
+        // separate thread so it doesn't hold up the screen
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                boolean flag = true;
+                Text textBox = (Text) notificationBox.getChildren().get(1);
+                textBox.setText(text);
+                Runnable show = new Runnable() {
+                    @Override
+                    public void run() {
+                        notificationBox.setVisible(true);
+
+                    }
+                };
+                Runnable hide = new Runnable() {
+                    @Override
+                    public void run() {
+                        if (!isPersistent) {
+                            notificationBox.setVisible(false);
+                        }
+                    }
+                };
+                Platform.runLater(show);
+                try{
+                    Thread.sleep(2000);
+                } catch (Exception e){}
+                Platform.runLater(hide);
+            }
+        });
+        thread.setDaemon(true);
+        thread.start();
+    }
 }
