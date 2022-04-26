@@ -10,509 +10,520 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.wordleclone.WordleController">
+<Group xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.wordleclone.WordleController">
    <children>
-      <Group>
+      <VBox fx:id="display" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="401.0" prefWidth="600.0" spacing="5.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="600.0" />
-            <Text layoutX="258.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wordle">
-               <font>
-                  <Font name="Noto Serif Bold" size="22.0" />
-               </font>
-            </Text>
-         </children>
-      </Group>
-      <VBox fx:id="rows" alignment="CENTER" prefHeight="258.0" prefWidth="600.0" spacing="2.0">
-         <children>
-            <HBox fx:id="row" alignment="TOP_CENTER" prefHeight="24.0" prefWidth="600.0" spacing="2.0">
+            <Group fx:id="titlebar">
                <children>
-                  <Group fx:id="box">
-                     <children>
-                        <Rectangle fx:id="rec" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Group>
-                  <Group fx:id="box1">
-                     <children>
-                        <Rectangle fx:id="rec1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter1" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Group>
-                  <Group fx:id="box2">
-                     <children>
-                        <Rectangle fx:id="rec2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter2" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Group>
-                  <Group fx:id="box3">
-                     <children>
-                        <Rectangle fx:id="rec3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter3" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Group>
-                  <Group fx:id="box4">
-                     <children>
-                        <Rectangle fx:id="rec4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter4" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Group>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="600.0" />
+                  <Text layoutX="258.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wordle">
+                     <font>
+                        <Font name="Noto Serif Bold" size="22.0" />
+                     </font>
+                  </Text>
                </children>
-            </HBox>
-            <HBox fx:id="row1" alignment="TOP_CENTER" prefHeight="24.0" prefWidth="600.0" spacing="2.0">
+            </Group>
+            <Group fx:id="notificationBox" visible="false">
                <children>
-                  <Group fx:id="box1">
-                     <children>
-                        <Rectangle fx:id="rec1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter1" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Group>
-                  <Group fx:id="box11">
-                     <children>
-                        <Rectangle fx:id="rec11" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter11" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Group>
-                  <Group fx:id="box21">
-                     <children>
-                        <Rectangle fx:id="rec21" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter21" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Group>
-                  <Group fx:id="box31">
-                     <children>
-                        <Rectangle fx:id="rec31" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter31" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Group>
-                  <Group fx:id="box41">
-                     <children>
-                        <Rectangle fx:id="rec41" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter41" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Group>
+                  <Rectangle fx:id="box" arcHeight="5.0" arcWidth="5.0" height="30.0" stroke="BLACK" strokeType="INSIDE" width="95.0" />
+                  <Text fx:id="words" fill="WHITE" layoutX="1.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="92.75567293167114" />
                </children>
-            </HBox>
-            <HBox fx:id="row2" alignment="TOP_CENTER" prefHeight="24.0" prefWidth="600.0" spacing="2.0">
+            </Group>
+            <VBox fx:id="rows" alignment="TOP_CENTER" prefHeight="258.0" prefWidth="600.0" spacing="2.0">
                <children>
-                  <Group fx:id="box1">
+                  <HBox fx:id="row" alignment="TOP_CENTER" prefHeight="24.0" prefWidth="600.0" spacing="2.0">
                      <children>
-                        <Rectangle fx:id="rec1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter1" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
+                        <Group fx:id="box">
+                           <children>
+                              <Rectangle fx:id="rec" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group fx:id="box1">
+                           <children>
+                              <Rectangle fx:id="rec1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter1" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group fx:id="box2">
+                           <children>
+                              <Rectangle fx:id="rec2" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter2" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group fx:id="box3">
+                           <children>
+                              <Rectangle fx:id="rec3" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter3" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group fx:id="box4">
+                           <children>
+                              <Rectangle fx:id="rec4" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter4" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
                      </children>
-                  </Group>
-                  <Group fx:id="box12">
+                  </HBox>
+                  <HBox fx:id="row1" alignment="TOP_CENTER" prefHeight="24.0" prefWidth="600.0" spacing="2.0">
                      <children>
-                        <Rectangle fx:id="rec12" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter12" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
+                        <Group fx:id="box1">
+                           <children>
+                              <Rectangle fx:id="rec1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter1" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group fx:id="box11">
+                           <children>
+                              <Rectangle fx:id="rec11" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter11" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group fx:id="box21">
+                           <children>
+                              <Rectangle fx:id="rec21" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter21" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group fx:id="box31">
+                           <children>
+                              <Rectangle fx:id="rec31" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter31" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group fx:id="box41">
+                           <children>
+                              <Rectangle fx:id="rec41" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter41" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
                      </children>
-                  </Group>
-                  <Group fx:id="box22">
+                  </HBox>
+                  <HBox fx:id="row2" alignment="TOP_CENTER" prefHeight="24.0" prefWidth="600.0" spacing="2.0">
                      <children>
-                        <Rectangle fx:id="rec22" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter22" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
+                        <Group fx:id="box1">
+                           <children>
+                              <Rectangle fx:id="rec1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter1" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group fx:id="box12">
+                           <children>
+                              <Rectangle fx:id="rec12" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter12" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group fx:id="box22">
+                           <children>
+                              <Rectangle fx:id="rec22" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter22" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group fx:id="box32">
+                           <children>
+                              <Rectangle fx:id="rec32" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter32" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group fx:id="box42">
+                           <children>
+                              <Rectangle fx:id="rec42" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter42" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
                      </children>
-                  </Group>
-                  <Group fx:id="box32">
+                  </HBox>
+                  <HBox fx:id="row3" alignment="TOP_CENTER" prefHeight="24.0" prefWidth="600.0" spacing="2.0">
                      <children>
-                        <Rectangle fx:id="rec32" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter32" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
+                        <Group fx:id="box1">
+                           <children>
+                              <Rectangle fx:id="rec1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter1" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group fx:id="box13">
+                           <children>
+                              <Rectangle fx:id="rec13" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter13" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group fx:id="box23">
+                           <children>
+                              <Rectangle fx:id="rec23" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter23" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group fx:id="box33">
+                           <children>
+                              <Rectangle fx:id="rec33" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter33" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group fx:id="box43">
+                           <children>
+                              <Rectangle fx:id="rec43" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter43" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
                      </children>
-                  </Group>
-                  <Group fx:id="box42">
+                  </HBox>
+                  <HBox fx:id="row4" alignment="TOP_CENTER" prefHeight="24.0" prefWidth="600.0" spacing="2.0">
                      <children>
-                        <Rectangle fx:id="rec42" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter42" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
+                        <Group fx:id="box1">
+                           <children>
+                              <Rectangle fx:id="rec1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter1" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group fx:id="box14">
+                           <children>
+                              <Rectangle fx:id="rec14" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter14" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group fx:id="box24">
+                           <children>
+                              <Rectangle fx:id="rec24" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter24" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group fx:id="box34">
+                           <children>
+                              <Rectangle fx:id="rec34" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter34" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group fx:id="box44">
+                           <children>
+                              <Rectangle fx:id="rec44" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter44" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
                      </children>
-                  </Group>
+                  </HBox>
+                  <HBox fx:id="row5" alignment="TOP_CENTER" prefHeight="24.0" prefWidth="600.0" spacing="2.0">
+                     <children>
+                        <Group fx:id="box1">
+                           <children>
+                              <Rectangle fx:id="rec1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter1" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group fx:id="box15">
+                           <children>
+                              <Rectangle fx:id="rec15" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter15" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group fx:id="box25">
+                           <children>
+                              <Rectangle fx:id="rec25" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter25" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group fx:id="box35">
+                           <children>
+                              <Rectangle fx:id="rec35" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter35" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                        <Group fx:id="box45">
+                           <children>
+                              <Rectangle fx:id="rec45" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
+                              <Text fx:id="letter45" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
+                                 <font>
+                                    <Font size="15.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </Group>
+                     </children>
+                  </HBox>
                </children>
-            </HBox>
-            <HBox fx:id="row3" alignment="TOP_CENTER" prefHeight="24.0" prefWidth="600.0" spacing="2.0">
+            </VBox>
+            <VBox fx:id="keyboard" alignment="BOTTOM_CENTER" prefHeight="154.0" prefWidth="600.0" spacing="1.0">
                <children>
-                  <Group fx:id="box1">
+                  <HBox fx:id="QWERTYUIOP" alignment="TOP_CENTER" prefHeight="34.0" prefWidth="600.0" spacing="3.0">
                      <children>
-                        <Rectangle fx:id="rec1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter1" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Group>
-                  <Group fx:id="box13">
-                     <children>
-                        <Rectangle fx:id="rec13" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter13" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Group>
-                  <Group fx:id="box23">
-                     <children>
-                        <Rectangle fx:id="rec23" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter23" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Group>
-                  <Group fx:id="box33">
-                     <children>
-                        <Rectangle fx:id="rec33" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter33" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Group>
-                  <Group fx:id="box43">
-                     <children>
-                        <Rectangle fx:id="rec43" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter43" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Group>
-               </children>
-            </HBox>
-            <HBox fx:id="row4" alignment="TOP_CENTER" prefHeight="24.0" prefWidth="600.0" spacing="2.0">
-               <children>
-                  <Group fx:id="box1">
-                     <children>
-                        <Rectangle fx:id="rec1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter1" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Group>
-                  <Group fx:id="box14">
-                     <children>
-                        <Rectangle fx:id="rec14" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter14" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Group>
-                  <Group fx:id="box24">
-                     <children>
-                        <Rectangle fx:id="rec24" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter24" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Group>
-                  <Group fx:id="box34">
-                     <children>
-                        <Rectangle fx:id="rec34" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter34" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Group>
-                  <Group fx:id="box44">
-                     <children>
-                        <Rectangle fx:id="rec44" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter44" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Group>
-               </children>
-            </HBox>
-            <HBox fx:id="row5" alignment="TOP_CENTER" prefHeight="24.0" prefWidth="600.0" spacing="2.0">
-               <children>
-                  <Group fx:id="box1">
-                     <children>
-                        <Rectangle fx:id="rec1" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter1" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Group>
-                  <Group fx:id="box15">
-                     <children>
-                        <Rectangle fx:id="rec15" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter15" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Group>
-                  <Group fx:id="box25">
-                     <children>
-                        <Rectangle fx:id="rec25" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter25" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Group>
-                  <Group fx:id="box35">
-                     <children>
-                        <Rectangle fx:id="rec35" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter35" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Group>
-                  <Group fx:id="box45">
-                     <children>
-                        <Rectangle fx:id="rec45" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="30.0" stroke="#d3d6da" strokeType="INSIDE" width="30.0" />
-                        <Text fx:id="letter45" layoutX="2.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="26.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Text>
-                     </children>
-                  </Group>
-               </children>
-            </HBox>
-         </children>
-      </VBox>
-      <VBox fx:id="keyboard" alignment="BOTTOM_CENTER" prefHeight="109.0" prefWidth="600.0" spacing="1.0">
-         <children>
-            <HBox fx:id="QWERTYUIOP" alignment="TOP_CENTER" prefHeight="34.0" prefWidth="600.0" spacing="3.0">
-               <children>
-                  <Button fx:id="keyQ" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="Q">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="keyW" ellipsisString="W" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="W">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="keyE" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="E">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="keyR" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="R">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="keyT" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="T">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="keyY" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="Y">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="keyU" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="U">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="keyI" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="I">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="keyO" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="O">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="keyP" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="P">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-               </children>
-            </HBox>
-            <HBox fx:id="ASDFGHJKL" alignment="TOP_CENTER" prefHeight="34.0" prefWidth="600.0" spacing="3.0">
-               <children>
-                  <Button fx:id="keyA" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="A">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="keyS" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="S">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="keyD" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="D">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="keyF" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="F">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="keyG" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="G">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="keyH" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="H">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="keyJ" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="J">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="keyK" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="K">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="keyL" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="L">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-               </children>
-            </HBox>
-            <HBox fx:id="ZXCVBNM" alignment="TOP_CENTER" prefHeight="34.0" prefWidth="600.0" spacing="3.0">
-               <children>
-                  <Button fx:id="enterKey" defaultButton="true" ellipsisString="ENTER" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="45.0" style="-fx-background-color: #d3d6da;" text="ENTER">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="keyZ" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="Z">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="keyX" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="X">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="keyC" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="C">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="keyV" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="V">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="keyB" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="B">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="keyN" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="N">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Button fx:id="keyM" ellipsisString="M" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="M">
-                     <font>
-                        <Font size="10.0" />
-                     </font>
-                  </Button>
-                  <Group>
-                     <children>
-                        <Button fx:id="backKey" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="34.0" style="-fx-background-color: #d3d6da;" text="BK">
+                        <Button fx:id="keyQ" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="Q">
                            <font>
                               <Font size="10.0" />
                            </font>
                         </Button>
-                        <ImageView fitHeight="22.0" fitWidth="27.0" layoutX="1.0" layoutY="5.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@backspace.png" />
-                           </image></ImageView>
+                        <Button fx:id="keyW" ellipsisString="W" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="W">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="keyE" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="E">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="keyR" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="R">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="keyT" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="T">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="keyY" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="Y">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="keyU" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="U">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="keyI" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="I">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="keyO" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="O">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="keyP" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="P">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
                      </children>
-                  </Group>
+                  </HBox>
+                  <HBox fx:id="ASDFGHJKL" alignment="TOP_CENTER" prefHeight="34.0" prefWidth="600.0" spacing="3.0">
+                     <children>
+                        <Button fx:id="keyA" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="A">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="keyS" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="S">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="keyD" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="D">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="keyF" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="F">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="keyG" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="G">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="keyH" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="H">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="keyJ" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="J">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="keyK" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="K">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="keyL" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="L">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox fx:id="ZXCVBNM" alignment="TOP_CENTER" prefHeight="34.0" prefWidth="600.0" spacing="3.0">
+                     <children>
+                        <Button fx:id="enterKey" defaultButton="true" ellipsisString="ENTER" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="45.0" style="-fx-background-color: #d3d6da;" text="ENTER">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="keyZ" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="Z">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="keyX" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="X">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="keyC" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="C">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="keyV" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="V">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="keyB" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="B">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="keyN" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="N">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="keyM" ellipsisString="M" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="20.0" style="-fx-background-color: #d3d6da;" text="M">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Button>
+                        <Group>
+                           <children>
+                              <Button fx:id="backKey" focusTraversable="false" mnemonicParsing="false" onAction="#keyClick" prefHeight="30.0" prefWidth="34.0" style="-fx-background-color: #d3d6da;" text="BK">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Button>
+                              <ImageView fitHeight="22.0" fitWidth="27.0" layoutX="1.0" layoutY="5.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@backspace.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Group>
+                     </children>
+                  </HBox>
                </children>
-            </HBox>
+            </VBox>
          </children>
       </VBox>
    </children>
-</VBox>
+</Group>

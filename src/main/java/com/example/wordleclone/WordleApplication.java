@@ -11,13 +11,16 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class WordleApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        String word = generateWord();
+        ArrayList<String> answers = loadWords("src/main/resources/com/example/wordleclone/wordle-nyt-answers-alphabetical.txt");
+
+        String word = generateWord(answers);
 
         Font.loadFont(getClass().getResourceAsStream("ClearSans-Regular.ttf"), 20);
 
@@ -28,7 +31,9 @@ public class WordleApplication extends Application {
 
         scene.setOnKeyPressed(e -> controller.keyboardPress(e.getCode())); // keyboard handler
 
-        controller.setAcceptedWords(loadWords("src/main/resources/com/example/wordleclone/wordle-nyt-allowed-guesses.txt"));
+        ArrayList<String> acceptedWords = loadWords("src/main/resources/com/example/wordleclone/wordle-nyt-allowed-guesses.txt");
+        acceptedWords.addAll(answers);
+        controller.setAcceptedWords(acceptedWords);
         controller.setWord(word.toUpperCase());
         stage.setTitle("Wordle");
         stage.setScene(scene);
@@ -36,15 +41,8 @@ public class WordleApplication extends Application {
     }
 
     // generates a word for wordle
-    public String generateWord(){
-        ArrayList<String> answers;
-        try {
-            answers = loadWords("src/main/resources/com/example/wordleclone/wordle-nyt-answers-alphabetical.txt");
-        }
-        catch (Exception e){
-            System.out.println("Couldn't open answers words file. Please check directory.");
-            return null;
-        }
+    public String generateWord(ArrayList<String> answers){
+
         Random rand = new Random();
         return answers.get(rand.nextInt(answers.size())); // return a word from the list
     }

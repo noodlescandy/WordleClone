@@ -13,12 +13,15 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class WordleController {
     @FXML
     private VBox rows;
     @FXML
     private VBox keyboard;
+    @FXML
+    private Group notificationBox;
     private int currentBox = 0; // initial locations
     private int currentRow = 0;
     private String currentWord = "";
@@ -91,19 +94,20 @@ public class WordleController {
 
     private void nextRow(){
         if(currentBox == 5){ // all five letters have been entered
-            // checkWord first, break if they win, continue if wrong
-            checkWordValidity();
-
-            // TODO
-            checkWord();
-            if(currentRow != 5) { // not on last row
-                currentRow++;
-                currentBox = 0;
-                currentWord = "";
+            if(isValidWord()) {
+                checkWord();
+                if (currentRow != 5) { // not on last row
+                    currentRow++;
+                    currentBox = 0;
+                    currentWord = "";
+                } else { // last row, you lost
+                    // you lose
+                    System.out.println("You lose");
+                }
             }
-            else{ // last row, you lost
-                // you lose
-                System.out.println("You lose");
+            else{
+                // display notification
+                System.out.println("Invalid Word");
             }
         }
     }
@@ -220,11 +224,17 @@ public class WordleController {
     }
 
     // checks currentWord, making sure it matches one of the allowed guesses
-    private void checkWordValidity(){
-        
+    private boolean isValidWord(){
+        return acceptedWords.contains(currentWord.toLowerCase());
     }
 
     public void setAcceptedWords(ArrayList<String> acceptedWords) {
         this.acceptedWords = acceptedWords;
     }
+
+    /*
+    private void displayNotification(String text, boolean isPersistent){
+        Text textBox = (Text) notificationBox.getChildren().get(1);
+        textBox.setText(text);
+    }*/
 }
