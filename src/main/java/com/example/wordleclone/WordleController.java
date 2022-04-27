@@ -8,10 +8,12 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -22,7 +24,7 @@ public class WordleController {
     @FXML
     private VBox keyboard;
     @FXML
-    private Group notificationBox;
+    private StackPane notificationBox;
     private int currentBox = 0; // initial locations
     private int currentRow = 0;
     private String currentWord = "";
@@ -102,12 +104,13 @@ public class WordleController {
                     currentBox = 0;
                     currentWord = "";
                 } else { // last row, you lost
-                    displayNotification(correctWord, true);
+                    if(!gameOver) // deal with getting it in 6
+                        displayNotification(correctWord, true);
                     gameOver = true;
                 }
             }
             else{
-                displayNotification("Invalid Word", false);
+                displayNotification("Not in Word List", false);
             }
         }
     }
@@ -242,14 +245,16 @@ public class WordleController {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                boolean flag = true;
                 Text textBox = (Text) notificationBox.getChildren().get(1);
+                Rectangle rectangle = (Rectangle) notificationBox.getChildren().get(0);
                 textBox.setText(text);
+                textBox.setTextAlignment(TextAlignment.CENTER);
+                double width = text.length()*6.5+15;
+                rectangle.setWidth(width);
                 Runnable show = new Runnable() {
                     @Override
                     public void run() {
                         notificationBox.setVisible(true);
-
                     }
                 };
                 Runnable hide = new Runnable() {
