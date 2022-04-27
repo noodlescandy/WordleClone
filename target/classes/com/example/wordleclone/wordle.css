@@ -1,8 +1,0 @@
-@font-face {
-    font-family: 'Clear Sans';
-    src: url('ClearSans-Regular.ttf');
-}
-
-.text {
-    -fx-font-family: "Clear Sans";
-}
