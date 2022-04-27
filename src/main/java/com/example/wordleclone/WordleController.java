@@ -110,7 +110,7 @@ public class WordleController {
                 }
             }
             else{
-                displayNotification("Not in Word List", false);
+                displayNotification("Not in word list", false);
             }
         }
     }
@@ -267,8 +267,10 @@ public class WordleController {
                 };
                 Platform.runLater(show);
                 try{
-                    Thread.sleep(2000);
-                } catch (Exception e){}
+                    Thread.sleep(3000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 Platform.runLater(hide);
             }
         });
